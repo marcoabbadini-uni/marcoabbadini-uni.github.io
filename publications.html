@@ -32,16 +32,50 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 				<section>
 
 					
+
+					
 					<header class="main">
 						<h1>Publications</h1>
 					</header>
 
-
+					
+					<nav id="toc">
+						<h2>Table of Contents</h2>
+						<ul id="toc-list"></ul>
+					</nav>
 					
 					
-					<h2>Preprints</h2>
+					<h2 id="preprints">Preprints</h2>
 
 					<ul>
+						<li>
+							<strong><font>&#321;</font>ukasiewicz unification with finitely many variables</strong>. (<a href="https://arxiv.org/abs/2504.19011" target="_blank">ArXiv</a>)
+							<br>
+							M. Abbadini, L. Spada.
+							<details class="show-more">
+								<summary><span>Show more</span></summary>
+								<p>
+									Building on the correspondence between finitely axiomatised theories 
+									in <font>&#321;</font>ukasiewicz logic and rational polyhedra, 
+									we prove that the unification type of the fragment of 
+									<font>&#321;</font>ukasiewicz logic with <i>n &ge; 2</i>
+									variables is nullary. 
+									This solves a problem left open by V. Marra and L. Spada 
+									[Ann. Pure Appl. Logic 164 (2013), pp. 192–210]. 
+									Furthermore, we refine the study of unification with 
+									bounds on the number of variables. 
+									Our proposal distinguishes the number <i>m</i> of variables 
+									allowed in the problem and the number <i>n</i> in the solution. 
+									We prove that the unification type of <font>&#321;</font>ukasiewicz 
+									logic for all <i>m,n &ge; 2</i> is nullary. 
+								</p>
+							</details>
+							
+						</li>
+
+						<br>
+
+
 						<li>
 							<strong>Freely adding one layer of quantifiers to a Boolean doctrine</strong>. (<a href="https://arxiv.org/abs/2410.16328" target="_blank">ArXiv</a>)
 							<br>
@@ -72,11 +106,22 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 							
 						</li>
 
-						<br>
+					</ul>
+
+					<br>
+
+
+
+					<h2 id="published">Published</h2>
+					
+					<ol>
+						<h4> 2025 </h4>
 
 
 						<li>
-							<strong>Varieties of MV-monoids and positive MV-algebras</strong> (<a href="https://arxiv.org/abs/2405.08471" target="_blank">ArXiv</a>).
+							<strong>Varieties of MV-monoids and positive MV-algebras</strong>. (<a href="https://arxiv.org/abs/2405.08471" target="_blank">ArXiv</a>).
+							<br>
+							<i>Journal of Algebra</i>, accepted for publication.
 							<br>
 							M. Abbadini, P. Aglian<font>&ograve</font>, S. Fioravanti.
 							<details class="show-more">
@@ -103,18 +148,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 							</details>
 						</li>
 
-					</ul>
-
-					<br>
-
-
-
-					<h2>Published</h2>
-
-					<ol>
-						<h4> 2025 </h4>
-
 						
+						<br>
+
 						<li>
 							<strong>Quantifier-free formulas and quantifier alternation depth in doctrines</strong>. 
 							(<a href="https://arxiv.org/abs/2404.08551" target="_blank">ArXiv</a>)
@@ -714,9 +750,17 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 						</li>
 					</ol>
 					
+					<h2 id="outreach">Outreach</h2>
+					<ul>
+						<li>
+							<strong>Attraverso lo specchio</strong>.
+							Outreach blog post on <i>Maddmaths!</i> (in Italian).
+							(To appear on May 6, 2025.)
+						</li>
+					</ul>
 
 					
-					<h2>PhD thesis</h2>
+					<h2 id="phdthesis">PhD thesis</h2>
 					<ul>
 						<li id="thesis">
 							<strong>On the axiomatisability of the dual of compact ordered spaces</strong>. 
@@ -809,6 +853,49 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             });
         });
     </script>
+
+
+	
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+		const tocContainer = document.getElementById("toc"); // Replace with your TOC element ID
+		if (!tocContainer) return;
+		
+		const headings = document.querySelectorAll("h2[id]");
+		const tocList = document.createElement("ul");
+		
+		headings.forEach((heading) => {
+			const sectionId = heading.id;
+			const sectionTitle = heading.textContent;
+		
+			// Try to find a <ul> or <ol> directly after this heading
+			let next = heading.nextElementSibling;
+			let count = 0;
+			if (next && (next.tagName === "UL" || next.tagName === "OL")) {
+				count = Array.from(next.children).filter(el => el.tagName === "LI").length;
+			}
+		
+			// Create TOC entry
+			const li = document.createElement("li");
+			const a = document.createElement("a");
+			a.href = `#${sectionId}`;
+			a.textContent = sectionTitle;
+			li.appendChild(a);
+		
+			// Add count (not clickable)
+			if (count > 0) {
+			const countSpan = document.createElement("span");
+			countSpan.className = "count";
+			countSpan.textContent = ` (${count})`;
+			li.appendChild(countSpan);
+			}
+		
+			tocList.appendChild(li);
+		});
+		
+		tocContainer.appendChild(tocList);
+		});
+	</script>
     <!--<script>
         document.querySelectorAll(".abstract").forEach(details => {
             const summary = details.querySelector("summary");

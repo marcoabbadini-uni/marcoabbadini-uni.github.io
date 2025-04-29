@@ -59,6 +59,28 @@ input, select, textarea {
   -webkit-appearance: none;
   -ms-appearance: none;
   appearance: none; }
+  
+
+  #toc {
+    margin-bottom: 2em;
+    padding: 1em;
+    background: #f9f9f9;
+    border-left: 4px solid #f56a6a;
+  }
+  #toc h2 {
+    margin-bottom: 0.5em;
+  }
+  #toc ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  #toc li {
+    margin: 0.25em 0;
+  }
+  #toc a .count {
+    color: #888;
+  }
+
 
 /* Basic */
 @-ms-viewport {
