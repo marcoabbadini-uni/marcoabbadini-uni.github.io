@@ -78,7 +78,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					-->
 					
 
-					<h2 id="plenary">Invited Plenary Talks at International Conferences</h2>
+					<h2 id="plenary">Invited</h2>
+
+					<h3>Plenary Talks at International Conferences</h3>
 
 					<ul id="section-plenary">
 						<li>
@@ -120,7 +122,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					
 
 
-					<h2 id="special-sessions">Invited Talks at Special Sessions in International Conferences</h2>
+					<h3 id="special-sessions">Invited Talks at Special Sessions in International Conferences</h3>
 
 					<ul id="section-special-sessions">
 						<li>
@@ -154,7 +156,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					</ul>
 					
 
-					<h2 id="workshops">Invited Talks at International Workshops</h2>
+					<h3 id="workshops">Invited Talks at International Workshops</h3>
 	
 					<ul id="section-workshops">
 						<li>
@@ -242,7 +244,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					</ul>
 
 					
-					<h2 id="national-workshops">Invited Talks at National Workshops</h2>
+					<h3 id="national-workshops">Invited Talks at National Workshops</h3>
 
 					<ul id="section-national-workshops">
 						<li>
@@ -285,7 +287,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					</ul>
 
 
-					<h2 id="contributed">Contributed Talks at International Conferences</h2>
+					<h2 id="contributed">Contributed</h2>
+
+					<h3>At International Conferences</h3>
 					
 					<ul id="section-contributed">
 
@@ -294,7 +298,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 							<br>
 							<em>Logic, Algebra and Truth Degrees (LATD2025)</em>.
 							<br>
-							Siena, Italy.
+							University of Siena, Italy.
 							(Upcoming: July 2025)
 							<details class="show-more">
 								<summary><span>Show more</span></summary>
@@ -311,6 +315,30 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 							</details>
 						</li>
 
+
+						<br>
+
+						<li>
+							<strong>An algebraic version of Herbrand’s theorem</strong>.
+							<br>
+							<em>Logic Colloquium 2025</em>.
+							<br>
+							TU Wien, Vienna, Austria.
+							(Upcoming: July 2025)
+							<details class="show-more">
+								<summary><span>Show more</span></summary>
+								<p>
+									<a href="abstracts/2025-07-Abbadini-algebraic-Herbrand-Logic-Colloquium.pdf" target="_blank">Abstract</a>.
+								</p>
+								
+
+								<p>
+									Based on 
+									<a href="https://arxiv.org/abs/2410.16328" target="_blank"><i>Freely adding one layer of quantifiers to a Boolean doctrine</i></a>.
+								</p>
+								
+							</details>
+						</li>
 
 						<br>
 
@@ -837,7 +865,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					</ul>
 					
 					
-					<h2 id="national-conferences">Contributed Talks at National Conferences</h2>
+					<h3 id="national-conferences">At National Conferences</h3>
 
 					<ul id="section-national-conferences">
 						<li>
@@ -863,7 +891,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					</ul>
 					
 					
-					<h2 id="seminars">Talks at Local Seminars</h2>
+					<h2 id="seminars">Local Seminars</h2>
 					
 
 					<ul id="section-seminars" >
@@ -1090,10 +1118,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 								</p>
 								
 								<p>
-
+									Based on 
+									<i>"Quantifier-free formulas and quantifier alternation depth in doctrines</i>" (<a href="https://arxiv.org/abs/2404.08551" target="_blank">Arxiv</a>).
 								</p>
-								Based on 
-								<i>"Quantifier-free formulas and quantifier alternation depth in doctrines</i>" (<a href="https://arxiv.org/abs/2404.08551" target="_blank">Arxiv</a>).
+								
 							</details>
 						</li>
 
@@ -1925,6 +1953,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 	</script>
 	-->
 
+	<!--
 	<script>
 		document.addEventListener("DOMContentLoaded", function () {
 		const tocContainer = document.getElementById("toc"); // Replace with your TOC element ID
@@ -1965,6 +1994,49 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 		tocContainer.appendChild(tocList);
 		});
 	</script>
+	-->
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const tocContainer = document.getElementById("toc");
+			if (!tocContainer) return;
+		
+			const tocList = document.getElementById("toc-list");
+			const headings = document.querySelectorAll("h2[id]");
+		
+			headings.forEach((heading) => {
+				const sectionId = heading.id;
+				const sectionTitle = heading.textContent;
+		
+				// Count <li> elements under all <ul> or <ol> descendants
+				let count = 0;
+				let next = heading.nextElementSibling;
+				while (next && !(next.tagName === "H2" && next.id)) {
+					if (next.tagName === "UL" || next.tagName === "OL") {
+						count += next.querySelectorAll("li").length;
+					}
+					next = next.nextElementSibling;
+				}
+		
+				// Add entry to TOC
+				const li = document.createElement("li");
+				const a = document.createElement("a");
+				a.href = `#${sectionId}`;
+				a.textContent = sectionTitle;
+		
+				if (count > 0) {
+					const countSpan = document.createElement("span");
+					countSpan.className = "count";
+					countSpan.textContent = ` (${count})`;
+					a.appendChild(countSpan);
+				}
+		
+				li.appendChild(a);
+				tocList.appendChild(li);
+			});
+		});
+		</script>
+		
 
 </body>
 </html>
