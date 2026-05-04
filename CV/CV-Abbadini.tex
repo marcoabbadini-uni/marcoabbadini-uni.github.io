@@ -1,0 +1,162 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[12pt]{awesome-cv}
+
+\onehalfspacing
+\geometry{left=2cm, top=.8cm, right=2cm, bottom=2cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/] 
+
+\colorlet{awesome}{awesome-skyblue}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+\makeatletter
+\patchcmd{\@sectioncolor}{\color}{\mdseries\color}{}{}
+\makeatother
+
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\color{text} \thepage\ of \pageref{LastPage}}
+
+\newcommand{\gray}{\color{lighttext}}
+
+\usepackage{xurl}
+
+\newcommand{\stress}[1]{{\color{awesome}#1}}
+
+\name{Marco Abbadini}{}
+\position{Postdoctoral researcher}
+\address{Université catholique de Louvain (Belgium), Research Institute in Mathematics and Physics}
+%
+%%\mobile{+1 000-000-0000}
+\email{marco.abbadini@uclouvain.be}
+\homepage{https://marcoabbadini-uni.github.io}
+%%\github{mygithub}
+%%\linkedin{mylinkedin}
+%% \gitlab{my-gitlab-id}
+%% \stackoverflow{SO-id}{SO-name}
+%% \twitter{@twitterhandle}
+%% \skype{skype-id}
+%% \reddit{reddit-id}
+\extrainfo{MathSciNet: \href{https://mathscinet.ams.org/mathscinet/MRAuthorID/1352790}{1352790}}
+%\extrainfo{\href{https://mathscinet.ams.org/mathscinet/MRAuthorID/1352790}{Link to MathSciNet page}}
+%\extrainfotwo{Italian}
+
+% --- TOC styling to match awesome-cv (compact dotted) ---
+\usepackage{tocloft}
+\newcommand{\TOCAccent}{awesome}
+
+\renewcommand{\contentsname}{}%
+\renewcommand{\cfttoctitlefont}{}%
+\renewcommand{\cftaftertoctitle}{\par\vspace{-1.0\baselineskip}}
+
+\setlength{\cftbeforesecskip}{1.5pt}
+\setlength{\cftsecindent}{0pt}
+\setlength{\cftsecnumwidth}{0pt}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % dotted leaders
+
+\renewcommand{\cftsecfont}{\bfseries}
+\renewcommand{\cftsecpagefont}{\bfseries\color{\TOCAccent}}
+
+% TOC right-margins & page-number box
+\cftsetpnumwidth{1.8em}   % width reserved for page numbers
+\cftsetrmarg{2.2em}       % right margin for TOC entries
+\renewcommand{\cftdotsep}{1.2} % dot spacing (smaller = denser)
+
+\AtBeginDocument{\hypersetup{linkcolor=awesome,urlcolor=awesome}}
+
+\usepackage{setspace} % add this in the preamble
+
+
+\usepackage[normalem]{ulem} % for underline
+\hypersetup{hidelinks}      % disables color & boxes
+
+\renewcommand*{\honordatestyle}[1]{%
+  {\fontsize{11pt}{1em}\bodyfont\color{lighttext} #1}%
+}
+
+\hypersetup{pdftitle={CV - Marco Abbadini}, pdfauthor={Marco Abbadini}}
+
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader[C]
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+% \makecvfooter
+%   {\today}
+%   {Junhao Dong~~~·~~~Résumé}
+%   {\thepage}
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%-------------------------------------------------------------------------------
+
+\input{resume/first-page.tex}
+\newpage
+
+
+% (Requires \usepackage{setspace} if you keep \onehalfspacing globally)
+{\begingroup
+	\small               % optional: slightly smaller TOC
+	\setstretch{0.9}     % tighter lines locally
+	
+	\makeatletter
+	\begingroup
+	\let\addcontentsline\@gobblethree
+	\cvsection{Contents}
+	\tableofcontents
+	 \endgroup
+ 	\makeatother
+	\endgroup}
+
+\medskip\smallskip
+\input{resume/academic-positions.tex}
+\medskip\smallskip
+\input{resume/publications.tex}
+\medskip\smallskip
+\input{resume/talks.tex}
+\medskip\smallskip
+\input{resume/teaching.tex}
+\medskip\smallskip
+\input{resume/outreach.tex}
+\medskip\smallskip
+\input{resume/awards.tex}
+\medskip\smallskip
+\input{resume/projects.tex}
+\medskip\smallskip
+\input{resume/organisation-of-conferences.tex}
+\medskip\smallskip
+\input{resume/visits.tex}
+\medskip\smallskip
+\input{resume/schools.tex}
+\medskip\smallskip
+%\input{resume/reviewer.tex}
+\input{resume/associations.tex}
+\medskip\smallskip
+\input{resume/languages.tex}
+
+
+%COSE DA SISTEMARE:
+%
+%Talk sul cubo di Rubik?
+\end{document}
