@@ -99,6 +99,13 @@
 % Give optional argument to change alignment(C: center, L: left, R: right)
 \makecvheader[C]
 
+% Make body links and URL fields visible even when PDF link colors/boxes are hidden.
+\let\plainhref\href
+\let\plainurl\url
+\newcommand{\externallinkicon}{\,{\mdseries\scriptsize\faExternalLink*}}
+\renewcommand{\href}[2]{\plainhref{#1}{#2\externallinkicon}}
+\renewcommand{\url}[1]{\plainurl{#1}\externallinkicon}
+
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
 % \makecvfooter
@@ -134,13 +141,11 @@
 \medskip\smallskip
 \input{resume/publications.tex}
 \medskip\smallskip
+\input{resume/awards.tex}
+\medskip\smallskip
 \input{resume/talks.tex}
 \medskip\smallskip
 \input{resume/teaching.tex}
-\medskip\smallskip
-\input{resume/outreach.tex}
-\medskip\smallskip
-\input{resume/awards.tex}
 \medskip\smallskip
 \input{resume/projects.tex}
 \medskip\smallskip
@@ -148,7 +153,11 @@
 \medskip\smallskip
 \input{resume/visits.tex}
 \medskip\smallskip
-\input{resume/schools.tex}
+\input{resume/outreach.tex}
+%\medskip\smallskip
+%\input{resume/schools.tex}
+\newpage
+\input{resume/additional-talks.tex}
 \medskip\smallskip
 %\input{resume/reviewer.tex}
 \input{resume/associations.tex}
