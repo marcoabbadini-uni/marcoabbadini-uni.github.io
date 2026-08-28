@@ -48,6 +48,39 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					<h2 id="preprints">Preprints</h2>
 
 					<ul>
+
+						<li>
+							<strong>Formal squares over the unit square separate FS-domains from RB-domains</strong>.
+							(<a href="https://arxiv.org/abs/2608.08681" target="_blank" rel="noopener">ArXiv</a>)
+							<br>
+							M. Abbadini.
+							<details class="show-more">
+								<summary><span>Show more</span></summary>
+								<p>
+									Every RB-domain is an FS-domain. Whether the converse holds was a
+									long-standing open problem. We prove that the domain of closed
+									axis-parallel squares in the plane whose centres lie in the unit square
+									[0,1]<sup>2</sup>, with the whole plane adjoined and ordered by reverse
+									inclusion, is an FS-domain but not an RB-domain.
+								</p>
+								<p>
+									The proof is quantitative. A finite-grid argument first shows that, on
+									every finite slab [0,1]<sup>2</sup> &times; [0,<i>m</i>], for every approximate
+									identity and every &epsilon; &gt; 0, one member of the approximate identity
+									has radius excess (i.e., the output radius minus the input radius)
+									uniformly at most &epsilon;. By contrast, for every deflation and every
+									<i>m</i> &gt; 0, the radius excess is at least <i>m</i>/(4<i>m</i>+1) at some
+									point of the slab [0,1]<sup>2</sup> &times; [0,<i>m</i>].
+								</p>
+								<p>
+									This solution was obtained independently of the recent work of Chen,
+									Kou, and Lyu and uses a different method.
+								</p>
+							</details>
+
+						</li>
+
+						<br>
 					
 						<li>
 							<strong>A topological proof that compact Hausdorff spaces are not finitely co-concrete</strong>.
@@ -135,11 +168,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 							<details class="show-more">
 								<summary><span>Show more</span></summary>
 								<p>
-									A longstanding open problem posed by Andrew Pitts is whether every Heyting
-									algebra is the lattice of truth values (i.e., of subterminal objects) of
-									some elementary topos. A positive answer is known for complete Heyting
-									algebras (i.e., locales) via sheaves, and for Boolean algebras via a
-									construction due to Peter Freyd.
+									A longstanding open problem is whether every Heyting algebra is the lattice
+									of truth values (i.e., of subterminal objects) of some elementary topos.
+									A positive answer is known for complete Heyting algebras (i.e., locales)
+									via sheaves, and for Boolean algebras via a construction due to Peter Freyd.
 								</p>
 								<p>
 									We extend Freyd's construction to all &eacute;tale-finite Heyting algebras,
@@ -148,7 +180,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 									Heyting subalgebra. For every &eacute;tale-finite Heyting algebra <i>H</i>,
 									we use Esakia duality to construct an elementary topos whose lattice of
 									truth values is isomorphic to <i>H</i>, thereby extending the class of
-									Heyting algebras for which a positive answer to Pitts' question is known.
+									Heyting algebras for which a positive answer to the Heyting-to-topos
+									problem is known.
 								</p>
 								<p>
 									The toposes we construct are categories of certain compact &eacute;tale
@@ -156,7 +189,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 									has a finite cover by subterminal objects. We show that a Heyting algebra
 									occurs as the lattice of truth values of some finitely propositional topos
 									if and only if it is &eacute;tale-finite. This exhibits an obstruction to
-									extending our use of compact &eacute;tale spaces beyond the &eacute;tale-finite case.
+									extending the use of compact &eacute;tale spaces beyond the &eacute;tale-finite case.
 								</p>
 
 							</details>
@@ -172,31 +205,35 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 							<details class="show-more">
 								<summary><span>Show more</span></summary>
 								<p>
-									Open sets and compact saturated sets enjoy a perfect formal symmetry, 
-									at least for classes of spaces such as Stone spaces or spectral spaces. 
-									For larger classes of spaces, a perfect symmetry may not be available, 
-									although strong signs of it may remain. 
-									These signs appear especially in the classes of spaces involved 
-									in Stone-like dualities (such as sober spaces).
+									Dualities such as Stone duality and the duality between sober spaces and
+									spatial frames hinge on an interaction between open sets and compact
+									saturated sets. In several important classes of spaces&mdash;Stone spaces,
+									spectral spaces, and stably compact spaces&mdash;this interaction forms a
+									perfect symmetry, reflected dually as order self-duality. But the class
+									of sober spaces, despite being central to Stone-like dualities, exhibits
+									only a partial symmetry between openness and compactness.
 								</p>
 								<p>
-									In this article, we introduce a framework with a perfect symmetry 
-									between open sets and compact saturated sets, and which includes sober spaces. 
-									Our main result is an extension of the duality between sober spaces and 
-									spatial frames to a duality between two categories, 
-									each equipped with a self-duality. 
-									On the spatial side, the self-duality extends de Groot self-duality for 
-									stably compact spaces, which swaps open sets with complements of 
-									compact saturated sets; this self-duality is made possible using structures 
-									reminiscent of bitopological spaces. On the pointfree side, the self-duality 
-									is an extension of Lawson self-duality for continuous domains and is achieved 
-									via a framework analogous to that of d-frames.
+									This raises a central question: can we enlarge the setting enough to
+									recover a perfect symmetry, while still retaining sober spaces and
+									preserving the conditions that make the sober-spatial-frame duality work?
 								</p>
-								
 								<p>
-									We show how to derive from our main result the well-known duality between
-									locally compact sober spaces and locally compact frames. In doing so,
-									we provide a presentation of continuous domains in a manner akin to d-frames.
+									We answer this question affirmatively. We introduce ko-spaces, whose
+									families of open and compact saturated sets satisfy the compatibility
+									needed for duality, and bi-dcpos, a pointfree companion generalizing both
+									spatial frames and continuous domains. We prove that the categories of
+									ko-spaces and distributive bi-dcpos are equivalent (and dually equivalent,
+									too), and that each category carries a symmetry in the form of a
+									self-duality. On spaces, this extends de Groot duality; on domains, it
+									extends Lawson duality.
+								</p>
+								<p>
+									Classical results fall out as special cases: the sober-spatial-frame
+									duality reappears inside our symmetric framework, and continuous domains
+									acquire a presentation akin to that of d-frames. Our work suggests that
+									an appropriate home for Stone-like duality is a fully symmetric two-sorted
+									world in which openness and compactness play on equal footing.
 								</p>
 
 								Recording:
@@ -263,14 +300,18 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 							<details class="show-more">
 								<summary><span>Show more</span></summary>
 								<p>
-									We show how to freely add the first layer of quantifier alternation 
-									depth to a Boolean doctrine over a small base category.
-									This amounts to a doctrinal version of Herbrand's theorem for 
-									formulas with quantifier alternation depth at most one modulo 
-									a universal theory. To achieve this, we characterize, within 
-									the doctrinal setting, the classes <i>A</i> of quantifier-free formulas 
-									for which there is a model <i>M</i> such that <i>A</i> is precisely the class of 
-									formulas whose universal closure is valid in <i>M</i>.
+									We describe the layer of quantifier alternation depth at most one of the
+									quantifier completion of a Boolean doctrine over a small category. This
+									amounts to a doctrinal version of Herbrand's theorem for formulas with
+									quantifier alternation depth at most one modulo a universal theory. The
+									resulting construction satisfies a universal property that makes it the
+									free QA-one-step Boolean doctrine.
+								</p>
+								<p>
+									To achieve this version of Herbrand's theorem, we characterize, within
+									the doctrinal setting, the classes <i>A</i> of quantifier-free formulas
+									for which there is a model <i>M</i> such that <i>A</i> is precisely the class
+									of formulas whose universal closure is valid in <i>M</i>.
 								</p>
 								Recording: <!--📽-->
 								<a href="https://youtu.be/dC2y_9UGrcc?start=21" target="_blank" rel="noopener">Seminar in Milan</a> (2024).
