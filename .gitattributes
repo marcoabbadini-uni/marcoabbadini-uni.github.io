@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Preserve public credential PDFs byte-for-byte.
+credentials/*.pdf binary
