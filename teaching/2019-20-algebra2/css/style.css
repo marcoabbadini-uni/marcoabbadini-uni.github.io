@@ -8,9 +8,9 @@ Author: themehippo.com
 /*------------------------------------------------------------------
 # [Color codes]
 
-# Body  (text): #3a4750
-# Heading Color #444444
-# Theme Color (link color) #82b541
+# Body  (text): #354551
+# Heading Color #a13941
+# Theme Color (link color) #a13941
 # Mid grey (sub header) #f4f4f4
 # -------------------------------------------------------------------*/
 
@@ -18,9 +18,9 @@ body {
     font-family : 'Hind', sans-serif;
     font-size   : 15px;
     line-height : 1.8em;
-    color       : #3d3d50;
+    color       : #354551;
     font-weight : 300;
-    background  : url("../img/bright_squares_@2X.png") fixed;
+    background  : #ffffff;
     }
 
 /* --------------------------------------
@@ -29,7 +29,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     margin : 0 0 15px;
-    color  : #2b2b3d;
+    color  : #a13941;
     }
 
 h1 {
@@ -71,7 +71,7 @@ h6 {
  * LINK STYLE
  *------------------------------------------*/
 a {
-    color              : #ff531a;
+    color              : #a13941;
     text-decoration    : none;
     -webkit-transition : all 0.3s ease 0s;
     -moz-transition    : all 0.3s ease 0s;
@@ -90,7 +90,7 @@ a:active {
 a:hover,
 a:focus {
     text-decoration : none;
-    color           : #ff9800;
+    color           : #96353c;
     }
 
 p {
@@ -124,28 +124,28 @@ ul {
 
 /*btn-primary*/
 .btn-primary {
-    background-color : #FFC107;
+    background-color : #a13941;
     }
 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active:focus {
-    background : #ff9800;
+    background : #96353c;
     }
 
 /*btn-default*/
 .btn-default {
-    color            : #2a54f5;
+    color            : #a13941;
     background-color : transparent;
-    border           : 2px solid #2a54f5;
+    border           : 2px solid #a13941;
     }
 
 .btn-default:hover,
 .btn-default:focus,
 .btn-default:active:focus {
-    background   : #2a54f5;
+    background   : #a13941;
     color        : #ffffff;
-    border-color : #2a54f5;
+    border-color : #a13941;
     }
 
 button:focus,
@@ -177,7 +177,7 @@ button:focus,
     -webkit-flex : 1 0 0;
     flex         : 1 0 0;
     position     : relative;
-    background   : rgba(255, 255, 255, .8);
+    background   : #ffffff;
     border-right : 1px solid #eaeaea;
     }
 
@@ -262,7 +262,7 @@ button:focus,
 
 .section-title h2 {
     margin-bottom : 5px;
-    color         : #bebece;
+    color         : #a13941;
     }
 
 /*-----------------------------
@@ -347,7 +347,7 @@ button:focus,
 .social-icon li a {
     display       : block;
     font-size     : 12px;
-    color         : #333333;
+    color         : #354551;
     width         : 34px;
     height        : 34px;
     line-height   : 33px;
@@ -394,7 +394,7 @@ button:focus,
     }
 
 .progress-item .progress-bar {
-    background-color : #FFC107;
+    background-color : #a13941;
     box-shadow       : none;
     text-align       : right;
     }
@@ -484,7 +484,7 @@ button:focus,
     }
 
 .content-item small {
-    color : #888888;
+    color : #64717b;
     }
 
 /*-------------------
@@ -503,7 +503,7 @@ button:focus,
     padding       : 0 20px;
     font-size     : 13px;
     line-height   : 50px;
-    color         : #969595;
+    color         : #64717b;
     border        : 1px solid #cccccc;
     border-radius : 0;
     box-shadow    : none;
@@ -527,7 +527,7 @@ button:focus,
 
 .footer .copyright-section {
     font-size : 13px;
-    color     : #888888;
+    color     : #64717b;
 
     }
 
