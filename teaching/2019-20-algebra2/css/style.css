@@ -71,7 +71,8 @@ h6 {
  * LINK STYLE
  *------------------------------------------*/
 a {
-    color              : #ff531a;
+    color              : #000000;
+    border-bottom      : 1px dotted #f56a6a;
     text-decoration    : none;
     -webkit-transition : all 0.3s ease 0s;
     -moz-transition    : all 0.3s ease 0s;
@@ -90,7 +91,7 @@ a:active {
 a:hover,
 a:focus {
     text-decoration : none;
-    color           : #ff9800;
+    color           : #000000;
     }
 
 p {

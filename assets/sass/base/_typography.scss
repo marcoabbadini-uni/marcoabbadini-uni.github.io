@@ -31,18 +31,26 @@
 			'color #{_duration(transition)} ease-in-out',
 			'border-bottom-color #{_duration(transition)} ease-in-out'
 		));
-		border-bottom: dotted 1px;
-		color: _palette(accent);
+		border-bottom: dotted 1px _palette(accent);
+		color: #000000;
 		text-decoration: none;
+
+		strong, b {
+			color: inherit;
+		}
 
 		&:hover {
 			border-bottom-color: _palette(accent);
-			color: _palette(accent) !important;
+			color: #000000 !important;
 
 			strong {
 				color: inherit;
 			}
 		}
+	}
+
+	.publication-doi a {
+		overflow-wrap: anywhere;
 	}
 
 	strong, b {
@@ -66,9 +74,9 @@
 		margin: 0 0 (_size(element-margin) * 0.5) 0;
 
 		a {
-			color: inherit;
+			color: #000000;
 			text-decoration: none;
-			border-bottom: 0;
+			border-bottom: dotted 1px _palette(accent);
 		}
 	}
 

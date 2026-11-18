@@ -3,3 +3,6 @@
 
 # Preserve public credential PDFs byte-for-byte.
 credentials/*.pdf binary
+
+# Preserve original publication PDFs byte-for-byte.
+publications/*.pdf binary

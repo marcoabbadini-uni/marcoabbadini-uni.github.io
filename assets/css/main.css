@@ -133,14 +133,19 @@ a {
   -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  border-bottom: dotted 1px;
-  color: #f56a6a;
+  border-bottom: dotted 1px #f56a6a;
+  color: #000000;
   text-decoration: none; }
+  a strong, a b {
+    color: inherit; }
   a:hover {
     border-bottom-color: #f56a6a;
-    color: #f56a6a !important; }
+    color: #000000 !important; }
     a:hover strong {
       color: inherit; }
+
+.publication-doi a {
+  overflow-wrap: anywhere; }
 
 strong, b {
   color: #3d4449;
@@ -159,9 +164,9 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
   margin: 0 0 1em 0; }
   h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-    color: inherit;
+    color: #000000;
     text-decoration: none;
-    border-bottom: 0; }
+    border-bottom: dotted 1px #f56a6a; }
 
 h1 {
   font-size: 4em;
@@ -1415,7 +1420,7 @@ ul.contact {
       ul.contact li:first-child:before {
         top: 0; }
     ul.contact li a {
-      color: inherit; }
+      color: #000000; }
 
 /* Pagination */
 ul.pagination {
@@ -1518,7 +1523,7 @@ button,
   border-radius: 0.375em;
   border: 0;
   box-shadow: inset 0 0 0 2px #f56a6a;
-  color: #f56a6a !important;
+  color: #000000 !important;
   cursor: pointer;
   display: inline-block;
   font-family: "Roboto Slab", serif;
@@ -2108,7 +2113,7 @@ button,
     margin-bottom: 0; }
   #header .logo {
     border-bottom: 0;
-    color: inherit;
+    color: #000000;
     font-family: "Roboto Slab", serif;
     font-size: 1.125em; }
   #header .icons {
@@ -2212,7 +2217,7 @@ button,
   color: #9fa3a6;
   font-size: 0.9em; }
   #footer .copyright a {
-    color: inherit; }
+    color: #000000; }
 
 /* Menu */
 #menu ul {
@@ -2220,7 +2225,7 @@ button,
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  color: #3d4449;
+  color: #000000;
   font-family: "Roboto Slab", serif;
   font-weight: 400;
   letter-spacing: 0.075em;
