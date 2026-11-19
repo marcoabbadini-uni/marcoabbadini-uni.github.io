@@ -1,172 +1,137 @@
 %!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
-
-%-------------------------------------------------------------------------------
-% CONFIGURATIONS
-%-------------------------------------------------------------------------------
-% A4 paper size by default, use 'letterpaper' for US letter
-\documentclass[12pt]{awesome-cv}
-
-\onehalfspacing
-\geometry{left=2cm, top=.8cm, right=2cm, bottom=2cm, footskip=.5cm}
-
-% Specify the location of the included fonts
-\fontdir[fonts/] 
-
-\colorlet{awesome}{awesome-skyblue}
-
-% Set false if you don't want to highlight section with awesome color
-\setbool{acvSectionColorHighlight}{true}
-
-% If you would like to change the social information separator from a pipe (|) to something else
-\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
-
+\documentclass[10pt,letterpaper]{article}
+\usepackage[left=20mm,right=20mm,top=17mm,bottom=19mm,footskip=9mm]{geometry}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\usepackage{fontawesome5}
+\usepackage{enumitem,needspace,fancyhdr,lastpage,etoolbox,multicol,setspace}
+\usepackage{xcolor,xurl}
+\usepackage[unicode,bookmarksopen=true,bookmarksnumbered=false]{hyperref}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{SourceSansPro-Regular.otf}[
+  BoldFont=SourceSansPro-Semibold.otf,
+  ItalicFont=SourceSansPro-RegularIt.otf,
+  BoldItalicFont=SourceSansPro-SemiboldIt.otf,Numbers={Lining,Tabular}]
+\newfontfamily\namefont{Roboto-Bold.ttf}[Path=fonts/]
+\definecolor{ink}{HTML}{273741}
+\definecolor{secondary}{HTML}{4D5F69}
+\definecolor{datecolor}{HTML}{426170}
+\definecolor{accent}{HTML}{007BB0}
+\definecolor{linkblue}{HTML}{126186}
+\definecolor{rulecolor}{HTML}{B5C8D0}
+\definecolor{faintrule}{HTML}{D1DCE0}
+\colorlet{lighttext}{secondary}
+\hypersetup{pdftitle={Marco Abbadini | Curriculum vitae},pdfauthor={Marco Abbadini},colorlinks=true,urlcolor=linkblue,linkcolor=ink,linktoc=all}
+\urlstyle{same}
+\newcommand{\gray}{\color{secondary}}
+\newcommand{\stress}[1]{\textcolor{accent}{#1}}
+\newcommand{\profilesep}{\hspace{.42em}\textcolor{rulecolor}{\textperiodcentered}\hspace{.42em}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedbottom
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.35pt}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{faintrule}\leaders\hrule height \footrulewidth\hfill}}
+\fancyfoot[L]{\fontsize{9pt}{11pt}\selectfont\color{secondary}Marco Abbadini}
+\fancyfoot[R]{\fontsize{9pt}{11pt}\selectfont\color{secondary}\thepage\, /\, \pageref*{LastPage}}
+\newif\ifafterheading
+\newcounter{publication}
+\newcounter{talk}
+\newcommand{\sectionline}[1]{%
+  {\fontsize{17pt}{20pt}\selectfont\bfseries\color{accent}#1\enspace
+   \textcolor{rulecolor}{\leaders\hrule height 0.45pt\hfill}\kern0pt\par}}
+\newcommand{\cvsection}[1]{%
+  \par\addvspace{14pt}\Needspace{92pt}%
+  \phantomsection\addcontentsline{toc}{section}{#1}%
+  \sectionline{#1}\global\afterheadingtrue\nobreak\vskip5.5pt\nobreak}
+\newcommand{\cvsubsection}[1]{%
+  \par\addvspace{9pt}\Needspace{64pt}%
+  {\fontsize{10.8pt}{13pt}\selectfont\addfontfeatures{LetterSpace=3.0}\scshape\color{linkblue}#1\par}%
+  \global\afterheadingtrue\nobreak\vskip5.5pt\nobreak}
+\newlength{\datewidth}\setlength{\datewidth}{28.8mm}
+\newlength{\colgap}\setlength{\colgap}{3.4mm}
+\newcommand{\entryhref}[2]{\href{#1}{\textcolor{ink}{#2}\nobreak\hspace{.1em}{\color{linkblue}\raisebox{.2ex}{\fontsize{6.5pt}{7pt}\selectfont$\nearrow$}}}}
+\newcommand{\datefont}{\fontsize{9.4pt}{12pt}\selectfont\color{datecolor}}
+\newcommand{\bodyfont}{\fontsize{10.7pt}{13.4pt}\selectfont\color{ink}}
+\newcommand{\detailfont}{\fontsize{10.4pt}{13.2pt}\selectfont\color{ink}}
+\setlist[itemize]{leftmargin=1.1em,labelsep=.46em,label=\textcolor{datecolor}{\raisebox{.13ex}{\scriptsize\textbullet}},topsep=1pt,partopsep=0pt,itemsep=.4pt,parsep=0pt}
+% Place the optional counter update on the same line and page as the entry.
+\newcommand{\datedblock}[3][]{%
+  \par\ifafterheading\global\afterheadingfalse\nointerlineskip\else\addvspace{5.3pt}\fi\noindent#1%
+  \begin{minipage}[t]{\datewidth}\raggedright\datefont\strut#2\end{minipage}%
+  \hspace*{\colgap}%
+  \begin{minipage}[t]{\dimexpr\linewidth-\datewidth-\colgap\relax}%
+    \raggedright\bodyfont #3\end{minipage}\par}
+\newcommand{\chronorow}[3]{\datedblock{#1}{%
+  {\bfseries\strut#2\par}%
+  \ifblank{#3}{}{\vspace{.4pt}{\detailfont#3\par}}}}
+\newcommand{\numbereddate}[2]{\makebox[\linewidth]{#1\hfill{\fontsize{8.7pt}{10pt}\selectfont #2.}}}
+\newcommand{\talkrow}[2]{%
+  \datedblock[\stepcounter{talk}]{\numbereddate{#1}{\thetalk}}{\strut#2\par}}
+\newcommand{\outreachrow}[2]{\datedblock{#1}{\strut#2\par}}
+\newcommand{\pubrow}[4]{%
+  \datedblock[\refstepcounter{publication}]{\numbereddate{#1}{\thepublication}}{%
+    {\bfseries\strut#2\par}#3\par
+    {\fontsize{10pt}{12.7pt}\selectfont\color{secondary}#4\par}}}
+\newcommand{\cvskill}[2]{\par\ifafterheading\global\afterheadingfalse\nointerlineskip\else\addvspace{1.5pt}\fi
+  {\bodyfont\makebox[\dimexpr\datewidth+\colgap\relax][l]{\bfseries#1}#2\par}}
+\newcommand{\cvplain}[1]{\global\afterheadingfalse\par\addvspace{2pt}{\bodyfont #1\par}}
+% Typeset the sections recorded by LaTeX in two balanced columns.
 \makeatletter
-\patchcmd{\@sectioncolor}{\color}{\mdseries\color}{}{}
+\renewcommand*{\l@section}[2]{%
+  \noindent#1\hspace{.5em}%
+  {\fontsize{8pt}{10pt}\selectfont\color{faintrule}\leaders\hbox to .36em{\hss.\hss}\hfill}%
+  \hspace{.45em}\makebox[1em][r]{\color{linkblue}#2}\par}
+\newcommand{\cvcontents}{%
+  \vspace{4pt}\sectionline{Contents}\vspace{5pt}
+  \begingroup
+    \fontsize{10.3pt}{14pt}\selectfont
+    \setlength{\multicolsep}{0pt}%
+    \setlength{\columnsep}{.07\linewidth}%
+    \begin{multicols}{2}\@starttoc{toc}\end{multicols}%
+  \endgroup}
 \makeatother
 
-\usepackage{lastpage}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\cfoot{\color{text} \thepage\ of \pageref{LastPage}}
-
-\newcommand{\gray}{\color{lighttext}}
-
-\usepackage{xurl}
-
-\newcommand{\stress}[1]{{\color{awesome}#1}}
-
-\name{Marco Abbadini}{}
-\position{Postdoctoral researcher}
-\address{Université catholique de Louvain (Belgium), Research Institute in Mathematics and Physics}
-%
-%%\mobile{+1 000-000-0000}
-\email{marco.abbadini@uclouvain.be}
-\homepage{https://marcoabbadini-uni.github.io}
-%%\github{mygithub}
-%%\linkedin{mylinkedin}
-%% \gitlab{my-gitlab-id}
-%% \stackoverflow{SO-id}{SO-name}
-%% \twitter{@twitterhandle}
-%% \skype{skype-id}
-%% \reddit{reddit-id}
-\extrainfo{MathSciNet: \href{https://mathscinet.ams.org/mathscinet/MRAuthorID/1352790}{1352790}}
-%\extrainfo{\href{https://mathscinet.ams.org/mathscinet/MRAuthorID/1352790}{Link to MathSciNet page}}
-%\extrainfotwo{Italian}
-
-% --- TOC styling to match awesome-cv (compact dotted) ---
-\usepackage{tocloft}
-\newcommand{\TOCAccent}{awesome}
-
-\renewcommand{\contentsname}{}%
-\renewcommand{\cfttoctitlefont}{}%
-\renewcommand{\cftaftertoctitle}{\par\vspace{-1.0\baselineskip}}
-
-\setlength{\cftbeforesecskip}{1.5pt}
-\setlength{\cftsecindent}{0pt}
-\setlength{\cftsecnumwidth}{0pt}
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % dotted leaders
-
-\renewcommand{\cftsecfont}{\bfseries}
-\renewcommand{\cftsecpagefont}{\bfseries\color{\TOCAccent}}
-
-% TOC right-margins & page-number box
-\cftsetpnumwidth{1.8em}   % width reserved for page numbers
-\cftsetrmarg{2.2em}       % right margin for TOC entries
-\renewcommand{\cftdotsep}{1.2} % dot spacing (smaller = denser)
-
-\AtBeginDocument{\hypersetup{linkcolor=awesome,urlcolor=awesome}}
-
-\usepackage{setspace} % add this in the preamble
-
-
-\usepackage[normalem]{ulem} % for underline
-\hypersetup{hidelinks}      % disables color & boxes
-
-\renewcommand*{\honordatestyle}[1]{%
-  {\fontsize{11pt}{1em}\bodyfont\color{lighttext} #1}%
-}
-
-\hypersetup{pdftitle={CV - Marco Abbadini}, pdfauthor={Marco Abbadini}}
-
-
-
-%-------------------------------------------------------------------------------
 \begin{document}
+\color{ink}
+\begin{center}
+{\namefont\fontsize{30pt}{33pt}\selectfont Marco Abbadini\par}
+\vspace{1pt}
+{\fontsize{11.3pt}{15pt}\selectfont\addfontfeatures{LetterSpace=3.0}\scshape\color{accent}Postdoctoral researcher\par}
+\vspace{1.5pt}
+{\fontsize{10.5pt}{13.5pt}\selectfont\color{secondary}Université catholique de Louvain (Belgium), Research Institute in Mathematics and Physics\par}
+\vspace{4pt}
+{\fontsize{9.6pt}{12pt}\selectfont
+\href{https://marcoabbadini-uni.github.io}{\faHome\, marcoabbadini-uni.github.io}\quad
+\textcolor{rulecolor}{\textbar}\quad
+\href{mailto:marco.abbadini@uclouvain.be}{\faEnvelope[regular]\, marco.abbadini@uclouvain.be}\par}
+\vspace{2pt}
+{\fontsize{9.2pt}{12pt}\selectfont\mbox{%
+\href{https://mathscinet.ams.org/mathscinet/MRAuthorID/1352790}{MathSciNet 1352790}\profilesep
+\href{https://orcid.org/0000-0003-1292-6006}{ORCID 0000-0003-1292-6006}\profilesep
+\href{https://www.scopus.com/authid/detail.uri?authorId=57211963012}{Scopus 57211963012}\profilesep
+\href{https://scholar.google.com/citations?user=dTfqNjoAAAAJ}{Google Scholar}\profilesep
+\href{https://www.researchgate.net/profile/Marco-Abbadini}{ResearchGate}\profilesep
+\href{https://arxiv.org/search/math?searchtype=author&query=Abbadini,+Marco}{arXiv}\profilesep
+\href{https://www.youtube.com/channel/UCn2PoVWwdOymxJF2j-C51lg/videos}{YouTube}}\par}
+\end{center}
+\cvcontents
 
-
-% Print the header with above personal informations
-% Give optional argument to change alignment(C: center, L: left, R: right)
-\makecvheader[C]
-
-% Make body links and URL fields visible even when PDF link colors/boxes are hidden.
-\let\plainhref\href
-\let\plainurl\url
-\newcommand{\externallinkicon}{\,{\mdseries\scriptsize\faExternalLink*}}
-\renewcommand{\href}[2]{\plainhref{#1}{#2\externallinkicon}}
-\renewcommand{\url}[1]{\plainurl{#1}\externallinkicon}
-
-% Print the footer with 3 arguments(<left>, <center>, <right>)
-% Leave any of these blank if they are not needed
-% \makecvfooter
-%   {\today}
-%   {Junhao Dong~~~·~~~Résumé}
-%   {\thepage}
-
-%-------------------------------------------------------------------------------
-%	CV/RESUME CONTENT
-%	Each section is imported separately, open each file in turn to modify content
-%-------------------------------------------------------------------------------
-
-%\input{resume/first-page.tex}
-%\newpage
-
-
-% (Requires \usepackage{setspace} if you keep \onehalfspacing globally)
-{\begingroup
-	\small               % optional: slightly smaller TOC
-	\setstretch{0.9}     % tighter lines locally
-	
-	\makeatletter
-	\begingroup
-	\let\addcontentsline\@gobblethree
-	\cvsection{Contents}
-	\tableofcontents
-	 \endgroup
- 	\makeatother
-	\endgroup}
-
-\medskip\smallskip
-\input{resume/academic-positions.tex}
-\medskip\smallskip
-\input{resume/publications.tex}
-\medskip\smallskip
-\input{resume/awards.tex}
-\medskip\smallskip
-\input{resume/talks.tex}
-\medskip\smallskip
-\input{resume/teaching.tex}
-\medskip\smallskip
-\input{resume/projects.tex}
-\medskip\smallskip
-\input{resume/organisation-of-conferences.tex}
-\medskip\smallskip
-\input{resume/visits.tex}
-\medskip\smallskip
-\input{resume/outreach.tex}
-%\medskip\smallskip
-%\input{resume/schools.tex}
-%\newpage
-%\input{resume/additional-talks.tex}
-\medskip\smallskip
-%\input{resume/reviewer.tex}
-\input{resume/associations.tex}
-\medskip\smallskip
-\input{resume/languages.tex}
-\medskip\smallskip
-\input{resume/additional-talks.tex}
-
-%COSE DA SISTEMARE:
-%
-%Talk sul cubo di Rubik?
+% Optional extended summary: \input{resume/first-page}
+\input{resume/academic-positions}
+\input{resume/publications}
+\input{resume/awards}
+\input{resume/talks}
+\input{resume/teaching}
+\input{resume/projects}
+\input{resume/organisation-of-conferences}
+\input{resume/visits}
+\input{resume/outreach}
+% Optional: \input{resume/schools}
+\input{resume/associations}
+\input{resume/languages}
+\input{resume/additional-talks}
 \end{document}
