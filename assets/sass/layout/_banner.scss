@@ -12,12 +12,36 @@
 
 		h1 {
 			margin-top: -0.125em;
+			margin-bottom: 0.15em;
+		}
+
+		.profile-subtitle {
+			margin: 0 0 1em;
+			color: _palette(fg-bold);
+			font-family: Georgia, serif;
+			font-size: 1.25em;
+			font-style: italic;
+			letter-spacing: normal;
+			line-height: 1.4;
+			text-transform: none;
+			text-wrap: balance;
 		}
 
 		.content {
 			@include vendor('flex-grow', '1');
 			@include vendor('flex-shrink', '1');
 			width: 50%;
+		}
+
+		.profile-links {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.6em;
+
+			.button {
+				padding: 0 1.25em;
+				text-transform: none;
+			}
 		}
 
 		.image {

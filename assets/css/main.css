@@ -77,7 +77,7 @@ input, select, textarea {
   #toc li {
     margin: 0.25em 0;
   }
-  #toc a .count {
+  #toc a:not(:hover) .count {
     color: #888;
   }
 
@@ -138,10 +138,10 @@ a {
   text-decoration: none; }
   a strong, a b {
     color: inherit; }
-  a:hover {
+  a[href]:hover {
     border-bottom-color: #f56a6a;
-    color: #000000 !important; }
-    a:hover strong {
+    color: #f56a6a !important; }
+    a[href]:hover strong {
       color: inherit; }
 
 .publication-doi a {
@@ -2142,7 +2142,25 @@ button,
   display: -ms-flex;
   display: flex; }
   #banner h1 {
-    margin-top: -0.125em; }
+    margin-top: -0.125em;
+    margin-bottom: 0.15em; }
+  #banner .profile-subtitle {
+    margin: 0 0 1em;
+    color: #3d4449;
+    font-family: Georgia, serif;
+    font-size: 1.25em;
+    font-style: italic;
+    letter-spacing: normal;
+    line-height: 1.4;
+    text-transform: none;
+    text-wrap: balance; }
+  #banner .profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6em; }
+    #banner .profile-links .button {
+      padding: 0 1.25em;
+      text-transform: none; }
   #banner .content {
     -moz-flex-grow: 1;
     -webkit-flex-grow: 1;
