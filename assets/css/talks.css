@@ -1,0 +1,33 @@
+.recordings {
+  container-type: inline-size;
+  margin-bottom: 2em;
+}
+
+.recordings-grid {
+  display: grid;
+  gap: 1.5em;
+  margin-bottom: 1em;
+}
+
+.recordings-grid iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.recordings-grid figcaption {
+  margin-top: 0.5em;
+}
+
+@container (min-width: 32rem) {
+  .recordings-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container (min-width: 60rem) {
+  .recordings-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
