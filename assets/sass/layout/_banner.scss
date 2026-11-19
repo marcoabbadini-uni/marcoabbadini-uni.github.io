@@ -44,12 +44,18 @@
 			}
 		}
 
-		.image {
+		.profile-visual {
 			@include vendor('flex-grow', '0');
 			@include vendor('flex-shrink', '0');
-			display: block;
 			margin: 0 0 _size(element-margin) (_size(element-margin) * 2);
 			width: 50%;
+		}
+
+		.profile-visual .image {
+			display: block;
+			margin: 0;
+			height: 35em;
+			width: 100%;
 
 			img {
 				height: 100%;
@@ -62,6 +68,95 @@
 				-ms-object-position: center;
 				object-position: center;
 				width: 100%;
+			}
+		}
+
+		.research-cloud {
+			container-type: inline-size;
+			position: relative;
+			aspect-ratio: 2.2;
+			min-height: 10rem;
+			margin: 1.25em auto 0;
+			width: 100%;
+			max-width: 34em;
+			color: #626c74;
+			font-family: _font(family-heading);
+			font-size: 1rem;
+			line-height: 1;
+
+			span {
+				position: absolute;
+				transform: translate(-50%, -50%);
+				font-size: clamp(14px, 3.3cqi, 1.2rem);
+				white-space: nowrap;
+			}
+
+			.cloud-dualities {
+				left: 50%;
+				top: 50%;
+				color: #d94c4c;
+				font-size: clamp(2.1rem, 14cqi, 5rem);
+				font-weight: 700;
+				letter-spacing: -0.045em;
+			}
+
+			.cloud-logic {
+				left: 31%;
+				top: 26%;
+				font-size: clamp(1.125rem, 5.9cqi, 2.1rem);
+				font-weight: 700;
+			}
+
+			.cloud-algebra {
+				left: 43%;
+				top: 75%;
+				color: _palette(fg-bold);
+				font-size: clamp(1.2rem, 6.8cqi, 2.4rem);
+			}
+
+			.cloud-order {
+				left: 81%;
+				top: 58%;
+				transform: translate(-50%, -50%) rotate(90deg);
+				font-size: clamp(14px, 4.9cqi, 1.8rem);
+			}
+
+			.cloud-topology {
+				left: 61%;
+				top: 23%;
+				color: _palette(fg-bold);
+				font-size: clamp(1.45rem, 8.7cqi, 3rem);
+				letter-spacing: -0.035em;
+			}
+
+			.cloud-categories {
+				left: 18%;
+				top: 52%;
+				transform: translate(-50%, -50%) rotate(-90deg);
+			}
+
+			.cloud-domains {
+				left: 65%;
+				top: 6%;
+				font-size: clamp(14px, 3.6cqi, 1.3rem);
+			}
+
+			.cloud-mv {
+				left: 27%;
+				top: 92%;
+				font-size: clamp(14px, 4.1cqi, 1.5rem);
+			}
+
+			.cloud-hyperdoctrines {
+				left: 68%;
+				top: 79%;
+				font-size: clamp(14px, 3.1cqi, 1.15rem);
+			}
+
+			@container (max-width: 420px) {
+				.cloud-hyperdoctrines {
+					top: 89%;
+				}
 			}
 		}
 
@@ -80,18 +175,24 @@
 				width: 100%;
 			}
 
-			.image {
-				@include vendor('flex-grow', '0');
-				@include vendor('flex-shrink', '0');
+			.profile-visual {
 				margin: 0 0 (_size(element-margin) * 2) 0;
-				height: 25em;
-				max-height: 50vh;
-				min-height: 18em;
 				width: 100%;
 			}
 
+			.profile-visual .image {
+				height: 25em;
+				max-height: 50vh;
+				min-height: 18em;
+			}
+
+			.research-cloud {
+				margin-top: 1.25em;
+				max-width: 28em;
+			}
+
 			@include breakpoint('<=xsmall') {
-				.image {
+				.profile-visual .image {
 					max-height: 35vh;
 				}
 			}

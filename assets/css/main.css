@@ -2171,7 +2171,7 @@ button,
     -ms-flex-shrink: 1;
     flex-shrink: 1;
     width: 50%; }
-  #banner .image {
+  #banner .profile-visual {
     -moz-flex-grow: 0;
     -webkit-flex-grow: 0;
     -ms-flex-grow: 0;
@@ -2180,10 +2180,14 @@ button,
     -webkit-flex-shrink: 0;
     -ms-flex-shrink: 0;
     flex-shrink: 0;
-    display: block;
     margin: 0 0 2em 4em;
     width: 50%; }
-    #banner .image img {
+  #banner .profile-visual .image {
+    display: block;
+    margin: 0;
+    height: 35em;
+    width: 100%; }
+    #banner .profile-visual .image img {
       height: 100%;
       -moz-object-fit: cover;
       -webkit-object-fit: cover;
@@ -2194,6 +2198,70 @@ button,
       -ms-object-position: center;
       object-position: center;
       width: 100%; }
+  #banner .research-cloud {
+    container-type: inline-size;
+    position: relative;
+    aspect-ratio: 2.2;
+    min-height: 10rem;
+    margin: 1.25em auto 0;
+    width: 100%;
+    max-width: 34em;
+    color: #626c74;
+    font-family: "Roboto Slab", serif;
+    font-size: 1rem;
+    line-height: 1; }
+    #banner .research-cloud span {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      font-size: clamp(14px, 3.3cqi, 1.2rem);
+      white-space: nowrap; }
+    #banner .research-cloud .cloud-dualities {
+      left: 50%;
+      top: 50%;
+      color: #d94c4c;
+      font-size: clamp(2.1rem, 14cqi, 5rem);
+      font-weight: 700;
+      letter-spacing: -0.045em; }
+    #banner .research-cloud .cloud-logic {
+      left: 31%;
+      top: 26%;
+      font-size: clamp(1.125rem, 5.9cqi, 2.1rem);
+      font-weight: 700; }
+    #banner .research-cloud .cloud-algebra {
+      left: 43%;
+      top: 75%;
+      color: #3d4449;
+      font-size: clamp(1.2rem, 6.8cqi, 2.4rem); }
+    #banner .research-cloud .cloud-order {
+      left: 81%;
+      top: 58%;
+      transform: translate(-50%, -50%) rotate(90deg);
+      font-size: clamp(14px, 4.9cqi, 1.8rem); }
+    #banner .research-cloud .cloud-topology {
+      left: 61%;
+      top: 23%;
+      color: #3d4449;
+      font-size: clamp(1.45rem, 8.7cqi, 3rem);
+      letter-spacing: -0.035em; }
+    #banner .research-cloud .cloud-categories {
+      left: 18%;
+      top: 52%;
+      transform: translate(-50%, -50%) rotate(-90deg); }
+    #banner .research-cloud .cloud-domains {
+      left: 65%;
+      top: 6%;
+      font-size: clamp(14px, 3.6cqi, 1.3rem); }
+    #banner .research-cloud .cloud-mv {
+      left: 27%;
+      top: 92%;
+      font-size: clamp(14px, 4.1cqi, 1.5rem); }
+    #banner .research-cloud .cloud-hyperdoctrines {
+      left: 68%;
+      top: 79%;
+      font-size: clamp(14px, 3.1cqi, 1.15rem); }
+    @container (max-width: 420px) {
+      #banner .research-cloud .cloud-hyperdoctrines {
+        top: 89%; } }
   @media screen and (orientation: portrait) {
     #banner {
       -moz-flex-direction: column-reverse;
@@ -2212,22 +2280,18 @@ button,
         -ms-flex-shrink: 0;
         flex-shrink: 0;
         width: 100%; }
-      #banner .image {
-        -moz-flex-grow: 0;
-        -webkit-flex-grow: 0;
-        -ms-flex-grow: 0;
-        flex-grow: 0;
-        -moz-flex-shrink: 0;
-        -webkit-flex-shrink: 0;
-        -ms-flex-shrink: 0;
-        flex-shrink: 0;
+      #banner .profile-visual {
         margin: 0 0 4em 0;
+        width: 100%; }
+      #banner .profile-visual .image {
         height: 18em;
         max-height: 38vh;
-        min-height: 12em;
-        width: 100%; } }
+        min-height: 12em; }
+      #banner .research-cloud {
+        margin-top: 1.25em;
+        max-width: 28em; } }
   @media screen and (orientation: portrait) and (max-width: 480px) {
-    #banner .image {
+    #banner .profile-visual .image {
       max-height: 32vh; } }
 
 /* Footer */
